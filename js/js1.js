@@ -41,10 +41,49 @@ const outputAnother = `Привет, меня зовут ${name} и до мен�
 console.log(output)
 console.log(outputAnother)
 
+//----------------------------------------------------------------------------------
+
+//Function Declaration - можем обращаться к  функции когда захотим (например, обращение будет выше, чем объявление)
+function greet(name){
+    console.log('hello - ', name )
+}
+
+//Function Expression - невозможно вызвать до объявления, но у этого метода есть преимущества, связанные с синтаксисом
+const greet2 = function greet2(name){
+    console.log('hello 2 - ', name )
+}
+
+//анонимная функция
+// let counter = 0
+// const interval = setInterval(function(){
+//     if(counter == 5)clearInterval(interval)
+//     else console.log(++counter)
+// }, 1000)
 
 
+//стрелочная функция
+const arrow = (name) => console.log('hello - ', name )
 
+arrow('jaba')
 
+//параметры по умолчанию
+const sum = (a = 2, b = a * 2) => a + b
+ 
+function printAll(...all){
+    console.log(all)
+}
 
+printAll(1,2,3,4)
+printAll(1,2,3,4,5,6,7,8)
 
+//замыкание
+function createMember(name){
+    return function(lastName){
+        console.log(name + lastName)
+    }
+}
+
+const logWithLastName = createMember('jaba')
+console.log(logWithLastName('sript')) //сохраняется имя жаба, а вот остальное меняется
+console.log(logWithLastName('script'))
 
